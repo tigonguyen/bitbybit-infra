@@ -4,7 +4,7 @@ services:
   # Frontend React Application
   frontend:
     build:
-      context: ../bitbybit-fe/frontend
+      context: ../bitbybit-fe
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
@@ -14,7 +14,7 @@ services:
     depends_on:
       - auth-service
     volumes:
-      - ../bitbybit-fe/frontend:/app
+      - ../bitbybit-fe:/app
       - /app/node_modules
     networks:
       - bitbybit-network
@@ -22,7 +22,7 @@ services:
   # Authentication Microservice
   auth-service:
     build:
-      context: ../bitbybit-be/backend/auth-service
+      context: ../bitbybit-be
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
@@ -31,7 +31,7 @@ services:
       - JWT_SECRET=your-secret-key-change-in-production
       - CORS_ALLOWED_ORIGINS=http://localhost:3000
     volumes:
-      - ../bitbybit-be/backend/auth-service:/app
+      - ../bitbybit-be:/app
     networks:
       - bitbybit-network
 

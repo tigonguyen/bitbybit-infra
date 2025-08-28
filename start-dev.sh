@@ -15,6 +15,17 @@ if [ ! -d "../bitbybit-be" ]; then
     exit 1
 fi
 
+# Check if repositories have the expected structure
+if [ ! -f "../bitbybit-fe/package.json" ]; then
+    echo "❌ Error: bitbybit-fe doesn't have package.json at root. Please ensure frontend code is at repository root."
+    exit 1
+fi
+
+if [ ! -f "../bitbybit-be/main.go" ]; then
+    echo "❌ Error: bitbybit-be doesn't have main.go at root. Please ensure backend code is at repository root."
+    exit 1
+fi
+
 # Create .env file if it doesn't exist
 if [ ! -f ".env" ]; then
     echo "📄 Creating .env file from template..."

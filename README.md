@@ -9,10 +9,14 @@ This repository contains the Docker Compose configuration and infrastructure set
 - The following repositories cloned in the same parent directory:
   ```
   parent-directory/
-  ├── bitbybit-infra/     (this repository)
-  ├── bitbybit-be/        (backend repository)
-  └── bitbybit-fe/        (frontend repository)
+  ├── bitbybit-infra/     (this repository - infrastructure)
+  ├── bitbybit-be/        (backend repository - Go service at root)
+  └── bitbybit-fe/        (frontend repository - React app at root)
   ```
+
+**Important**: Each repository now has its application code at the root level:
+- `bitbybit-fe/` contains React app files directly (package.json, src/, etc.)
+- `bitbybit-be/` contains Go service files directly (main.go, go.mod, etc.)
 
 ## Quick Start
 
@@ -129,21 +133,28 @@ docker-compose down --volumes --remove-orphans
 bitbybit-infra/
 ├── docker-compose.yml      # Multi-service orchestration
 ├── .env                    # Environment variables
+├── .env.example           # Environment template
 ├── start-dev.sh           # Development startup script
+├── stop-dev.sh            # Development stop script
+├── Makefile               # Development commands
+├── .gitignore             # Git ignore rules
 └── README.md              # This file
 
-../bitbybit-fe/
-└── frontend/
-    ├── Dockerfile         # Frontend container
-    ├── package.json       # Dependencies
-    └── src/               # React source code
+../bitbybit-fe/             # Frontend repository (React app at root)
+├── src/                   # React source code
+├── public/                # Static assets
+├── package.json           # Dependencies
+├── Dockerfile             # Frontend container
+├── tailwind.config.js     # Tailwind configuration
+├── tsconfig.json          # TypeScript configuration
+└── README.md              # Frontend documentation
 
-../bitbybit-be/
-└── backend/
-    └── auth-service/
-        ├── Dockerfile     # Backend container
-        ├── main.go        # Go application
-        └── go.mod         # Go dependencies
+../bitbybit-be/             # Backend repository (Go service at root)
+├── main.go                # Go application entry point
+├── go.mod                 # Go module definition
+├── go.sum                 # Go dependencies
+├── Dockerfile             # Backend container
+└── README.md              # Backend documentation
 ```
 
 ## Troubleshooting
