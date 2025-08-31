@@ -1,12 +1,12 @@
-# BitByBit Project Guide for New Context Windows
+# DailyDelta Project Guide for New Context Windows
 
 ## Quick Start for Cursor/AI Assistants
 
 ### Project Overview in 30 Seconds
-BitByBit = IT skills learning platform with 3 repositories:
-- **bitbybit-fe**: React frontend (6 courses, typing practice)
-- **bitbybit-be**: Go auth service (JWT, port 8080)  
-- **bitbybit-infra**: Docker development + AWS deployment
+DailyDelta = IT skills learning platform with 3 repositories:
+- **dailydelta-fe**: React frontend (6 courses, typing practice)
+- **dailydelta-be**: Go auth service (JWT, port 8080)  
+- **dailydelta-infra**: Docker development + AWS deployment
 
 ### Current Status
 - ✅ **Working**: Local development, typing lessons, 6-course homepage
@@ -15,7 +15,7 @@ BitByBit = IT skills learning platform with 3 repositories:
 
 ## Essential File Locations
 
-### Frontend (bitbybit-fe)
+### Frontend (dailydelta-fe)
 ```
 src/pages/Introduction.tsx   # Homepage with 6 courses
 src/pages/TypingCourse.tsx   # Typing lessons overview  
@@ -26,13 +26,13 @@ src/pages/Login.tsx          # Authentication
 ARCHITECTURE.md              # Frontend architecture
 ```
 
-### Backend (bitbybit-be)  
+### Backend (dailydelta-be)  
 ```
 main.go                      # Go HTTP server with JWT
 README.md                    # Backend documentation
 ```
 
-### Infrastructure (bitbybit-infra)
+### Infrastructure (dailydelta-infra)
 ```
 local-test/                  # Docker Compose development
 amplify.yml                  # AWS Amplify build config
@@ -61,15 +61,15 @@ Typing course → "Start Typing" → /typing/lesson/1
 ### Development Workflow
 ```bash
 # Full stack local development
-cd bitbybit-infra/local-test
+cd dailydelta-infra/local-test
 ./start-dev.sh
 
 # Frontend only
-cd bitbybit-fe  
+cd dailydelta-fe  
 npm start
 
 # Backend only
-cd bitbybit-be
+cd dailydelta-be
 go run main.go
 ```
 
@@ -86,7 +86,7 @@ go run main.go
 - **Simple explanations**: Direct action over lengthy descriptions
 
 ## Quick Debugging
-- **Frontend not starting**: Check you're in bitbybit-fe directory
+- **Frontend not starting**: Check you're in dailydelta-fe directory
 - **Backend connection issues**: Verify Go service on port 8080
 - **Docker problems**: Check Docker Desktop running, try ./stop-dev.sh then ./start-dev.sh
 - **Route issues**: Check App.tsx for routing configuration
@@ -112,4 +112,4 @@ go run main.go
 4. Look at existing components for patterns
 5. Ask user for clarification on preferences
 
-This guide should provide enough context for any AI assistant to effectively contribute to the BitByBit project across all repositories.
+This guide should provide enough context for any AI assistant to effectively contribute to the DailyDelta project across all repositories.

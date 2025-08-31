@@ -1,6 +1,6 @@
-# BitByBit Infrastructure
+# DailyDelta Infrastructure
 
-This repository manages the infrastructure and deployment configurations for BitByBit - an IT skills learning platform starting with touch typing fundamentals.
+This repository manages the infrastructure and deployment configurations for DailyDelta - an IT skills learning platform starting with touch typing fundamentals.
 
 ## 🚀 Quick Start for New Context Windows
 - **[PROJECT_GUIDE.md](./PROJECT_GUIDE.md)** - Essential overview for AI assistants
@@ -11,7 +11,7 @@ This repository manages the infrastructure and deployment configurations for Bit
 ## Repository Structure
 
 ```
-bitbybit-infra/
+dailydelta-infra/
 ├── local-test/          # Local development with Docker Compose
 │   ├── docker-compose.yml
 │   ├── start-dev.sh
@@ -25,11 +25,11 @@ bitbybit-infra/
 
 ## Project Architecture
 
-BitByBit consists of three repositories:
+DailyDelta consists of three repositories:
 
-- **[bitbybit-fe](../bitbybit-fe)**: React frontend with TypeScript and Tailwind CSS
-- **[bitbybit-be](../bitbybit-be)**: Go backend with authentication and API services  
-- **[bitbybit-infra](.)**: Infrastructure, deployment, and development environment
+- **[dailydelta-fe](../dailydelta-fe)**: React frontend with TypeScript and Tailwind CSS
+- **[dailydelta-be](../dailydelta-be)**: Go backend with authentication and API services  
+- **[dailydelta-infra](.)**: Infrastructure, deployment, and development environment
 
 ## Deployment Strategies
 

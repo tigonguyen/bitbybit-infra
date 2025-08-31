@@ -1,19 +1,19 @@
-# BitByBit Project Context & Decision History
+# DailyDelta Project Context & Decision History
 
 ## Project Vision
-BitByBit is an IT skills learning platform that builds foundational technology skills progressively, starting with touch typing and advancing through comprehensive IT competencies.
+DailyDelta is an IT skills learning platform that builds foundational technology skills progressively, starting with touch typing and advancing through comprehensive IT competencies.
 
 ## Multi-Repository Architecture
 ### Repository Roles
-- **bitbybit-fe**: User interface and experience (React + TypeScript)
-- **bitbybit-be**: Authentication and API services (Go)
-- **bitbybit-infra**: Development environment and deployment orchestration
+- **dailydelta-fe**: User interface and experience (React + TypeScript)
+- **dailydelta-be**: Authentication and API services (Go)
+- **dailydelta-infra**: Development environment and deployment orchestration
 
 ### Repository Dependencies
 ```
-bitbybit-infra (orchestration)
-├── → bitbybit-fe (frontend service)
-└── → bitbybit-be (backend service)
+dailydelta-infra (orchestration)
+├── → dailydelta-fe (frontend service)
+└── → dailydelta-be (backend service)
 ```
 
 ## Current Development Status
