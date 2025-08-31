@@ -1,0 +1,61 @@
+# BitByBit Multi-Repository Project Rules
+
+## Project Overview
+BitByBit is an IT skills learning platform with a microservices architecture across 3 repositories:
+- **bitbybit-fe**: React TypeScript frontend (port 3000)
+- **bitbybit-be**: Go authentication service (port 8080) 
+- **bitbybit-infra**: Infrastructure, deployment, and development orchestration
+
+## Repository Structure
+```
+bitbybit-infra/
+├── local-test/           # Local Docker development
+│   ├── docker-compose.yml
+│   ├── start-dev.sh
+│   ├── stop-dev.sh
+│   └── Makefile
+├── aws/                  # AWS deployment configs (future)
+├── amplify.yml          # AWS Amplify build config
+├── ARCHITECTURE.md      # Full project architecture
+├── CONTEXT.md          # Project context and decisions
+└── AWS_DEPLOYMENT_GUIDE.md
+```
+
+## Development Workflow
+1. **Local Development**: Use `local-test/start-dev.sh` to run full stack
+2. **Frontend Only**: Navigate to `../bitbybit-fe` and run `npm start`
+3. **Backend Only**: Navigate to `../bitbybit-be` and run `go run main.go`
+
+## Key Project Rules
+- **Frontend**: 6 courses on homepage (Touch Typing → Programming → DSA → Cloud → DevOps → Cybersecurity)
+- **Only Touch Typing available** with "Start" button linking to typing lessons
+- **Progress tracking**: LocalStorage for lesson completion without login required
+- **Color scheme**: Foundation (green), Intermediate (blue), Advanced (orange)
+
+## Infrastructure Decisions
+- **Local**: Docker Compose for full-stack development
+- **Production**: AWS Amplify for frontend, API Gateway + Lambda for backend
+- **Database**: DynamoDB for user progress and content
+- **Authentication**: JWT tokens from Go backend service
+
+## Commit Patterns
+- Use conventional commits: feat/fix/refactor
+- Keep commit messages short and clear
+- User controls when to commit (no automatic commits)
+
+## Deployment Strategy
+- **Phase 1**: Frontend deployment to AWS Amplify
+- **Phase 2**: Backend migration to serverless (Lambda + API Gateway)  
+- **Phase 3**: Database setup (DynamoDB)
+- **Phase 4**: Full integration and testing
+
+## Cross-Repository Navigation
+When working across repositories:
+- Frontend repo: `cd ../bitbybit-fe`
+- Backend repo: `cd ../bitbybit-be`
+- Infrastructure repo: `cd ../bitbybit-infra`
+
+## Environment Configuration
+- Frontend: .env with REACT_APP_API_BASE_URL
+- Backend: Environment variables for JWT_SECRET, CORS settings
+- Infra: .env.example templates for all services

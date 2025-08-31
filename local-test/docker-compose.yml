@@ -4,7 +4,7 @@ services:
   # Frontend React Application
   frontend:
     build:
-      context: ../bitbybit-fe
+      context: ../../bitbybit-fe
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
@@ -22,7 +22,7 @@ services:
   # Authentication Microservice
   auth-service:
     build:
-      context: ../bitbybit-be
+      context: ../../bitbybit-be
       dockerfile: Dockerfile
     ports:
       - "8080:8080"

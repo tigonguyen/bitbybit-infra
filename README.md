@@ -1,189 +1,99 @@
 # BitByBit Infrastructure
 
-This repository contains the Docker Compose configuration and infrastructure setup to run the complete BitByBit application locally.
+This repository manages the infrastructure and deployment configurations for BitByBit - an IT skills learning platform starting with touch typing fundamentals.
 
-## Prerequisites
+## 🚀 Quick Start for New Context Windows
+- **[PROJECT_GUIDE.md](./PROJECT_GUIDE.md)** - Essential overview for AI assistants
+- **[.cursorrules](./.cursorrules)** - Multi-repository development rules  
+- **[ARCHITECTURE.md](./ARCHITECTURE.md)** - Complete system architecture
+- **[CONTEXT.md](./CONTEXT.md)** - Project decisions and history
 
-- Docker Desktop installed and running
-- Git
-- The following repositories cloned in the same parent directory:
-  ```
-  parent-directory/
-  ├── bitbybit-infra/     (this repository - infrastructure)
-  ├── bitbybit-be/        (backend repository - Go service at root)
-  └── bitbybit-fe/        (frontend repository - React app at root)
-  ```
-
-**Important**: Each repository now has its application code at the root level:
-- `bitbybit-fe/` contains React app files directly (package.json, src/, etc.)
-- `bitbybit-be/` contains Go service files directly (main.go, go.mod, etc.)
-
-## Quick Start
-
-1. **Clone all repositories** (if not already done):
-   ```bash
-   git clone <bitbybit-infra-repo-url>
-   git clone <bitbybit-be-repo-url>
-   git clone <bitbybit-fe-repo-url>
-   ```
-
-2. **Navigate to the infrastructure directory**:
-   ```bash
-   cd bitbybit-infra
-   ```
-
-3. **Start the development environment**:
-   ```bash
-   ./start-dev.sh
-   ```
-
-   Or manually with Docker Compose:
-   ```bash
-   docker-compose up --build
-   ```
-
-4. **Access the application**:
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:8080
-   - Health Check: http://localhost:8080/health
-
-## Services
-
-### Frontend (React)
-- **Port**: 3000
-- **Technology**: React 19, TypeScript, Tailwind CSS
-- **Repository**: bitbybit-fe
-- **Features**: 
-  - Modern responsive UI
-  - Authentication forms
-  - Real-time API integration
-
-### Backend (Go)
-- **Port**: 8080
-- **Technology**: Go, Gorilla Mux, JWT
-- **Repository**: bitbybit-be
-- **Features**:
-  - RESTful API
-  - JWT authentication
-  - CORS enabled
-  - In-memory user storage (demo)
-
-## API Endpoints
-
-### Authentication
-- `POST /api/auth/login` - User login
-- `POST /api/auth/register` - User registration  
-- `GET /api/auth/validate` - Token validation
-
-### User
-- `GET /api/user/profile` - Get user profile (protected)
-
-### System
-- `GET /health` - Health check
-
-## Demo Credentials
-
-For testing, use these demo credentials:
-- **Email**: demo@bitbybit.dev
-- **Password**: password123
-
-## Environment Configuration
-
-The application uses the following environment variables:
-
-### Backend
-- `PORT`: Server port (default: 8080)
-- `JWT_SECRET`: JWT signing secret
-- `CORS_ALLOWED_ORIGINS`: Allowed CORS origins
-
-### Frontend
-- `REACT_APP_API_BASE_URL`: Backend API URL
-- `REACT_APP_AUTH_SERVICE_URL`: Auth service URL
-
-## Development Commands
-
-```bash
-# Start all services
-docker-compose up --build
-
-# Start in detached mode
-docker-compose up -d --build
-
-# View logs
-docker-compose logs -f
-
-# View specific service logs
-docker-compose logs -f frontend
-docker-compose logs -f auth-service
-
-# Stop all services
-docker-compose down
-
-# Rebuild specific service
-docker-compose build frontend
-docker-compose build auth-service
-
-# Remove all containers and volumes
-docker-compose down --volumes --remove-orphans
-```
-
-## Project Structure
+## Repository Structure
 
 ```
 bitbybit-infra/
-├── docker-compose.yml      # Multi-service orchestration
-├── .env                    # Environment variables
-├── .env.example           # Environment template
-├── start-dev.sh           # Development startup script
-├── stop-dev.sh            # Development stop script
-├── Makefile               # Development commands
-├── .gitignore             # Git ignore rules
-└── README.md              # This file
-
-../bitbybit-fe/             # Frontend repository (React app at root)
-├── src/                   # React source code
-├── public/                # Static assets
-├── package.json           # Dependencies
-├── Dockerfile             # Frontend container
-├── tailwind.config.js     # Tailwind configuration
-├── tsconfig.json          # TypeScript configuration
-└── README.md              # Frontend documentation
-
-../bitbybit-be/             # Backend repository (Go service at root)
-├── main.go                # Go application entry point
-├── go.mod                 # Go module definition
-├── go.sum                 # Go dependencies
-├── Dockerfile             # Backend container
-└── README.md              # Backend documentation
+├── local-test/          # Local development with Docker Compose
+│   ├── docker-compose.yml
+│   ├── start-dev.sh
+│   ├── stop-dev.sh
+│   ├── Makefile
+│   └── .env.example
+├── aws/                 # AWS deployment configurations (future)
+├── amplify.yml          # AWS Amplify build configuration
+└── README.md           # This file
 ```
 
-## Troubleshooting
+## Project Architecture
 
-### Services won't start
-1. Check if Docker is running: `docker info`
-2. Ensure all repositories are in the correct directory structure
-3. Check logs: `docker-compose logs`
+BitByBit consists of three repositories:
 
-### Frontend can't connect to backend
-1. Verify backend is running: `curl http://localhost:8080/health`
-2. Check CORS configuration in backend
-3. Verify environment variables are set correctly
+- **[bitbybit-fe](../bitbybit-fe)**: React frontend with TypeScript and Tailwind CSS
+- **[bitbybit-be](../bitbybit-be)**: Go backend with authentication and API services  
+- **[bitbybit-infra](.)**: Infrastructure, deployment, and development environment
 
-### Port conflicts
-If ports 3000 or 8080 are already in use:
-1. Stop other services using those ports
-2. Or modify the ports in `docker-compose.yml`
+## Deployment Strategies
 
-## Next Steps
+### 🚀 AWS Amplify (Recommended for Frontend)
 
-- [ ] Add database integration (PostgreSQL)
-- [ ] Implement proper user management
-- [ ] Add monitoring and logging
-- [ ] Set up CI/CD pipeline
-- [ ] Add more microservices
+AWS Amplify provides an excellent platform for React applications with:
+- Automatic CI/CD from Git repositories
+- Global CDN distribution
+- Custom domain support
+- Environment variable management
+- Built-in monitoring and analytics
 
-## Contributing
+### 🐳 Local Development
 
-1. Make changes in the respective repositories (bitbybit-fe, bitbybit-be)
-2. Test locally using this infrastructure setup
-3. Update this README if infrastructure changes are needed
+For local development and testing:
+- Navigate to `local-test/` directory
+- Use Docker Compose for full-stack development
+- See [local-test/README.md](./local-test/README.md) for details
+
+## AWS Infrastructure Recommendation
+
+### Simple Amplify + API Gateway + Lambda Setup
+
+```
+Frontend (React)     Backend Services
+┌─────────────────┐  ┌─────────────────┐
+│   AWS Amplify   │  │  API Gateway    │
+│   - React App   │  │  + Lambda       │
+│   - Static CDN  │──▶│  - Auth API     │
+│   - Git Deploy  │  │  - Lessons API  │
+│   - Custom DNS  │  │  - Progress API │
+└─────────────────┘  └─────────────────┘
+                            │
+                     ┌─────────────────┐
+                     │   DynamoDB      │
+                     │   - Users       │
+                     │   - Progress    │
+                     │   - Lessons     │
+                     └─────────────────┘
+```
+
+### Estimated AWS Costs (Early Stage)
+- **AWS Amplify**: $1-5/month (hosting + builds)
+- **API Gateway**: $3-10/month (requests + data transfer)
+- **Lambda**: $0-5/month (execution time)
+- **DynamoDB**: $1-3/month (storage + reads/writes)
+- **Total**: ~$5-25/month for moderate usage
+
+## Getting Started
+
+### Local Development
+1. Clone all three repositories in the same parent directory
+2. Navigate to `local-test/`
+3. Run `./start-dev.sh`
+4. Access at http://localhost:3000
+
+### AWS Amplify Deployment
+See deployment prerequisites and steps below.
+
+## Future Infrastructure Plans
+
+- **Authentication**: AWS Cognito for user management
+- **API**: API Gateway + Lambda for backend services
+- **Database**: DynamoDB for user progress and content
+- **Storage**: S3 for lesson content and media
+- **Monitoring**: CloudWatch for logs and metrics
+- **CI/CD**: GitHub Actions for automated deployments

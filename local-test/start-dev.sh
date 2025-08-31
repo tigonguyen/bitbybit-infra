@@ -4,24 +4,26 @@
 
 echo "🚀 Starting BitByBit Development Environment..."
 
-# Check if required repositories exist
-if [ ! -d "../bitbybit-fe" ]; then
-    echo "❌ Error: bitbybit-fe repository not found. Please ensure it's in the same parent directory."
+# Check if required repositories exist (relative to local-test directory)
+if [ ! -d "../../bitbybit-fe" ]; then
+    echo "❌ Error: bitbybit-fe repository not found. Please ensure it's in the same parent directory as bitbybit-infra."
+    echo "💡 Expected structure: ../bitbybit-fe/ (relative to local-test directory)"
     exit 1
 fi
 
-if [ ! -d "../bitbybit-be" ]; then
-    echo "❌ Error: bitbybit-be repository not found. Please ensure it's in the same parent directory."
+if [ ! -d "../../bitbybit-be" ]; then
+    echo "❌ Error: bitbybit-be repository not found. Please ensure it's in the same parent directory as bitbybit-infra."
+    echo "💡 Expected structure: ../bitbybit-be/ (relative to local-test directory)"
     exit 1
 fi
 
 # Check if repositories have the expected structure
-if [ ! -f "../bitbybit-fe/package.json" ]; then
+if [ ! -f "../../bitbybit-fe/package.json" ]; then
     echo "❌ Error: bitbybit-fe doesn't have package.json at root. Please ensure frontend code is at repository root."
     exit 1
 fi
 
-if [ ! -f "../bitbybit-be/main.go" ]; then
+if [ ! -f "../../bitbybit-be/main.go" ]; then
     echo "❌ Error: bitbybit-be doesn't have main.go at root. Please ensure backend code is at repository root."
     exit 1
 fi
