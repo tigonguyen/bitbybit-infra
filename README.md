@@ -1,6 +1,6 @@
-# DailyDelta Infrastructure
+# BiteBytes Infrastructure
 
-This repository manages the infrastructure and deployment configurations for DailyDelta - an IT skills learning platform starting with touch typing fundamentals.
+This repository manages the infrastructure and deployment configurations for BiteBytes - an IT skills learning platform starting with touch typing fundamentals.
 
 ## 🚀 Quick Start for New Context Windows
 - **[PROJECT_GUIDE.md](./PROJECT_GUIDE.md)** - Essential overview for AI assistants
@@ -11,7 +11,7 @@ This repository manages the infrastructure and deployment configurations for Dai
 ## Repository Structure
 
 ```
-dailydelta-infra/
+bitebytes-infra/
 ├── local-test/          # Local development with Docker Compose
 │   ├── docker-compose.yml
 │   ├── start-dev.sh
@@ -25,11 +25,11 @@ dailydelta-infra/
 
 ## Project Architecture
 
-DailyDelta consists of three repositories:
+BiteBytes consists of three repositories:
 
-- **[dailydelta-fe](../dailydelta-fe)**: React frontend with TypeScript and Tailwind CSS
-- **[dailydelta-be](../dailydelta-be)**: Go backend with authentication and API services  
-- **[dailydelta-infra](.)**: Infrastructure, deployment, and development environment
+- **[bitebytes-fe](../bitebytes-fe)**: React frontend with TypeScript and Tailwind CSS
+- **[bitebytes-be](../bitebytes-be)**: Go backend with authentication and API services  
+- **[bitebytes-infra](.)**: Infrastructure, deployment, and development environment
 
 ## Deployment Strategies
 

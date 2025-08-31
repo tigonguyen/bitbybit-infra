@@ -1,19 +1,19 @@
-# DailyDelta Project Context & Decision History
+# BiteBytes Project Context & Decision History
 
 ## Project Vision
-DailyDelta is an IT skills learning platform that builds foundational technology skills progressively, starting with touch typing and advancing through comprehensive IT competencies.
+BiteBytes is an IT skills learning platform that builds foundational technology skills progressively, starting with touch typing and advancing through comprehensive IT competencies.
 
 ## Multi-Repository Architecture
 ### Repository Roles
-- **dailydelta-fe**: User interface and experience (React + TypeScript)
-- **dailydelta-be**: Authentication and API services (Go)
-- **dailydelta-infra**: Development environment and deployment orchestration
+- **bitebytes-fe**: User interface and experience (React + TypeScript)
+- **bitebytes-be**: Authentication and API services (Go)
+- **bitebytes-infra**: Development environment and deployment orchestration
 
 ### Repository Dependencies
 ```
-dailydelta-infra (orchestration)
-├── → dailydelta-fe (frontend service)
-└── → dailydelta-be (backend service)
+bitebytes-infra (orchestration)
+├── → bitebytes-fe (frontend service)
+└── → bitebytes-be (backend service)
 ```
 
 ## Current Development Status
