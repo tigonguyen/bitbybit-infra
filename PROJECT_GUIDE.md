@@ -1,12 +1,12 @@
-# BiteBytes Project Guide for New Context Windows
+# DevOpsita Project Guide for New Context Windows
 
 ## Quick Start for Cursor/AI Assistants
 
 ### Project Overview in 30 Seconds
-BiteBytes = IT skills learning platform with 3 repositories:
-- **bitebytes-fe**: React frontend (6 courses, typing practice)
-- **bitebytes-be**: Go auth service (JWT, port 8080)  
-- **bitebytes-infra**: Docker development + AWS deployment
+DevOpsita = DevOps career training platform with 3 repositories:
+- **devopsita-fe**: React frontend (8 DevOps courses, hands-on practice)
+- **devopsita-be**: Go auth service (JWT, port 8080)  
+- **devopsita-infra**: Docker development + AWS deployment
 
 ### Current Status
 - ✅ **Working**: Local development, typing lessons, 6-course homepage
@@ -15,7 +15,7 @@ BiteBytes = IT skills learning platform with 3 repositories:
 
 ## Essential File Locations
 
-### Frontend (bitebytes-fe)
+### Frontend (devopsita-fe)
 ```
 src/pages/Introduction.tsx   # Homepage with 6 courses
 src/pages/TypingCourse.tsx   # Typing lessons overview  
@@ -26,13 +26,13 @@ src/pages/Login.tsx          # Authentication
 ARCHITECTURE.md              # Frontend architecture
 ```
 
-### Backend (bitebytes-be)  
+### Backend (devopsita-be)  
 ```
 main.go                      # Go HTTP server with JWT
 README.md                    # Backend documentation
 ```
 
-### Infrastructure (bitebytes-infra)
+### Infrastructure (devopsita-infra)
 ```
 local-test/                  # Docker Compose development
 amplify.yml                  # AWS Amplify build config
@@ -61,15 +61,15 @@ Typing course → "Start Typing" → /typing/lesson/1
 ### Development Workflow
 ```bash
 # Full stack local development
-cd bitebytes-infra/local-test
+cd devopsita-infra/local-test
 ./start-dev.sh
 
 # Frontend only
-cd bitebytes-fe  
+cd devopsita-fe  
 npm start
 
 # Backend only
-cd bitebytes-be
+cd devopsita-be
 go run main.go
 ```
 
@@ -86,7 +86,7 @@ go run main.go
 - **Simple explanations**: Direct action over lengthy descriptions
 
 ## Quick Debugging
-- **Frontend not starting**: Check you're in bitebytes-fe directory
+- **Frontend not starting**: Check you're in devopsita-fe directory
 - **Backend connection issues**: Verify Go service on port 8080
 - **Docker problems**: Check Docker Desktop running, try ./stop-dev.sh then ./start-dev.sh
 - **Route issues**: Check App.tsx for routing configuration
@@ -112,4 +112,4 @@ go run main.go
 4. Look at existing components for patterns
 5. Ask user for clarification on preferences
 
-This guide should provide enough context for any AI assistant to effectively contribute to the BiteBytes project across all repositories.
+This guide should provide enough context for any AI assistant to effectively contribute to the DevOpsita project across all repositories.

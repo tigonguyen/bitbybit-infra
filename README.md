@@ -1,6 +1,6 @@
-# BiteBytes Infrastructure
+# DevOpsita Infrastructure
 
-This repository manages the infrastructure and deployment configurations for BiteBytes - an IT skills learning platform starting with touch typing fundamentals.
+This repository manages the infrastructure and deployment configurations for DevOpsita - a DevOps career training platform focusing on hands-on practice and real-world skills.
 
 ## 🚀 Quick Start for New Context Windows
 - **[PROJECT_GUIDE.md](./PROJECT_GUIDE.md)** - Essential overview for AI assistants
@@ -11,7 +11,7 @@ This repository manages the infrastructure and deployment configurations for Bit
 ## Repository Structure
 
 ```
-bitebytes-infra/
+devopsita-infra/
 ├── local-test/          # Local development with Docker Compose
 │   ├── docker-compose.yml
 │   ├── start-dev.sh
@@ -25,11 +25,11 @@ bitebytes-infra/
 
 ## Project Architecture
 
-BiteBytes consists of three repositories:
+DevOpsita consists of three repositories:
 
-- **[bitebytes-fe](../bitebytes-fe)**: React frontend with TypeScript and Tailwind CSS
-- **[bitebytes-be](../bitebytes-be)**: Go backend with authentication and API services  
-- **[bitebytes-infra](.)**: Infrastructure, deployment, and development environment
+- **[devopsita-fe](../devopsita-fe)**: React frontend with TypeScript and Tailwind CSS
+- **[devopsita-be](../devopsita-be)**: Go backend with authentication and API services  
+- **[devopsita-infra](.)**: Infrastructure, deployment, and development environment
 
 ## Deployment Strategies
 

@@ -1,19 +1,19 @@
-# BiteBytes Project Context & Decision History
+# DevOpsita Project Context & Decision History
 
 ## Project Vision
-BiteBytes is an IT skills learning platform that builds foundational technology skills progressively, starting with touch typing and advancing through comprehensive IT competencies.
+DevOpsita is a DevOps career training platform that builds essential DevOps skills progressively, focusing on hands-on practice and real-world applications. From infrastructure automation to deployment pipelines.
 
 ## Multi-Repository Architecture
 ### Repository Roles
-- **bitebytes-fe**: User interface and experience (React + TypeScript)
-- **bitebytes-be**: Authentication and API services (Go)
-- **bitebytes-infra**: Development environment and deployment orchestration
+- **devopsita-fe**: User interface and experience (React + TypeScript)
+- **devopsita-be**: Authentication and API services (Go)
+- **devopsita-infra**: Development environment and deployment orchestration
 
 ### Repository Dependencies
 ```
-bitebytes-infra (orchestration)
-├── → bitebytes-fe (frontend service)
-└── → bitebytes-be (backend service)
+devopsita-infra (orchestration)
+├── → devopsita-fe (frontend service)
+└── → devopsita-be (backend service)
 ```
 
 ## Current Development Status
